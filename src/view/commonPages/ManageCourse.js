@@ -23,14 +23,8 @@ const ManageCourse = () => {
   // Fetch all courses
   const fetchCourses = async () => {
     try {
-      const token = localStorage.getItem("token") || ""; // Retrieve token
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/course/getAllCourses`,
-        {
-          headers: {
-            "x-auth-token": token,
-          },
-        }
+        "https://lmsacademicserver.netlify.app/api/course/getAllCourses"
       );
       const coursesData = response.data.courses || [];
       setCourses(coursesData);
@@ -43,14 +37,8 @@ const ManageCourse = () => {
   // Fetch all subjects
   const fetchSubjects = async () => {
     try {
-      const token = localStorage.getItem("token") || ""; // Retrieve token
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/subject/getAllSubjects`,
-        {
-          headers: {
-            "x-auth-token": token,
-          },
-        }
+        "https://lmsacademicserver.netlify.app/api/subject/getAllSubjects"
       );
       setSubjects(response.data.subjects || []);
     } catch (error) {
@@ -62,14 +50,8 @@ const ManageCourse = () => {
   // Fetch all campuses
   const fetchCampuses = async () => {
     try {
-      const token = localStorage.getItem("token") || ""; // Retrieve token
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/campus/getAllCampuses`,
-        {
-          headers: {
-            "x-auth-token": token,
-          },
-        }
+        "https://lmsacademicserver.netlify.app/api/campus/getAllCampuses"
       );
       if (Array.isArray(response.data)) {
         setCampuses(response.data);
@@ -124,20 +106,20 @@ const ManageCourse = () => {
       subject: course.subject[0] || "",
       campus: course.campus[0] || "",
       language: course.language,
-      orientationDay: course.orientationDay || "", // Added to handle orientationDay
     });
   };
 
   // Save changes to the course
   const handleSaveClick = async () => {
-    const token = localStorage.getItem("token") || ""; // Retrieve token
+    const token = localStorage.getItem("token");
+
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/api/course/updateCourse/${editingCourseId}`,
+        `https://lmsacademicserver.netlify.app/api/course/updateCourse/${editingCourseId}`,
         editedCourse,
         {
           headers: {
-            "x-auth-token": token,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -151,7 +133,6 @@ const ManageCourse = () => {
         subject: "",
         campus: "",
         language: "",
-        orientationDay: "", // Added to reset orientationDay
       });
 
       fetchCourses();
@@ -172,7 +153,6 @@ const ManageCourse = () => {
       subject: "",
       campus: "",
       language: "",
-      orientationDay: "", // Added to reset orientationDay
     });
   };
 
