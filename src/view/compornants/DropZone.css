@@ -1,0 +1,110 @@
+/* Dropzone.css */
+.dropzone-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropzone.active {
+  border-color: #00b341;
+  background-color: #e8f5e9;
+}
+
+.dropzone p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.image-preview-container {
+  text-align: center;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  max-height: 300px;
+  display: block;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.dropzone-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.current-profile-frame {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.profile-image-frame {
+  display: inline-block;
+  margin-top: 15px;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.no-image-placeholder {
+  color: #888;
+  margin-top: 15px;
+}
+
+.image-preview-container {
+  text-align: center;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropzone.active {
+  border-color: #00b341;
+  background-color: #e8f5e9;
+}

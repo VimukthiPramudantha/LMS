@@ -1,0 +1,10 @@
+/* Add this CSS to your scroller.css file */
+.nav_list {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 80vh; /* Set a max-height for the scrolling container */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.nav_link.active {
+    background-color: #0000FF; /* Highlight the active link */
+}
