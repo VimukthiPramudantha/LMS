@@ -59,7 +59,7 @@ const AddStudentInstallment = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/course/getAllCourses"
+          "https://primelms-server.netlify.app/api/course/getAllCourses"
         );
         if (Array.isArray(response.data.courses)) {
           const campusData = localStorage.getItem("assignCampus");
@@ -174,7 +174,7 @@ const AddStudentInstallment = () => {
       };
 
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/addStudentInstallent",
+        "https://primelms-server.netlify.app/api/coordinatorAddStudent/addStudentInstallent",
         data,
         {
           headers: {

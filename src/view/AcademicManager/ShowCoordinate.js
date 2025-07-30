@@ -11,7 +11,7 @@ const ManageDirectorCoordinate = () => {
     const fetchCoordinators = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinator/getAllCoordinators"
+          "https://primelms-server.netlify.app/api/coordinator/getAllCoordinators"
         );
         setAllCoordinators(response.data); // Set original data
         setFilteredCoordinators(response.data); // Initialize filtered data

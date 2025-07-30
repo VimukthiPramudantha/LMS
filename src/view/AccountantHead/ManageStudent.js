@@ -27,7 +27,7 @@ const ManageStudent = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents",
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

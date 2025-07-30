@@ -26,7 +26,7 @@ const EducationStudent = () => {
     useEffect(() => {
         const fetchStudentPortalAccess = async () => {
             try {
-                const response = await fetch(`https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudent/${studentObjectId}`);
+                const response = await fetch(`https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudent/${studentObjectId}`);
                 if (response.ok) {
                     const data = await response.json();
                     if (data && data.portalAccess !== undefined) {

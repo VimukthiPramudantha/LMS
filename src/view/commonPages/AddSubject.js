@@ -33,7 +33,7 @@ const AddSubject = () => {
     try {
       // Send the request with the token included in the Authorization header
       await axios.post(
-          "https://lmsacademicserver.netlify.app/api/subject/create",
+          "https://primelms-server.netlify.app/api/subject/create",
           newSubject,
           {
             headers: {

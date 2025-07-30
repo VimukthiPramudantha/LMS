@@ -210,7 +210,7 @@ const ManageClass = ({
       const start_time = `${zoomDate}T${zoomTime}:00`;
     
       try {
-        const response = await axios.post("https://lmsacademicserver.netlify.app/api/zoom/create", {
+        const response = await axios.post("https://primelms-server.netlify.app/api/zoom/create", {
           ...zoomMeeting,
           start_time,
         });

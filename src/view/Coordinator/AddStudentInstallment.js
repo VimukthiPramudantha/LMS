@@ -99,7 +99,7 @@ const calculateDueDate = (createdAt, dueDays) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudent/${student._id}`
+          `https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudent/${student._id}`
         );
 
         if (response.data) {
@@ -303,7 +303,7 @@ const calculateDueDate = (createdAt, dueDays) => {
 
       // 3. Send updates to the server
       const response = await axios.patch(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
         {
           Installments: updatedInstallments,
           PaymentHistory: [newPaymentRecord], // Send only the new record
@@ -365,7 +365,7 @@ const calculateDueDate = (createdAt, dueDays) => {
 
       // 4. Send updates to the server
       await axios.patch(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
         {
           Installments: updatedInstallments,
           PaymentHistory: updatedHistory,

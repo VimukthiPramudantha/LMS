@@ -22,7 +22,7 @@ const ManageSubject = () => {
   // Fetch all subjects
   const fetchSubjects = async () => {
     try {
-      const response = await axios.get('https://lmsacademicserver.netlify.app/api/subject/getAllSubjectsNoLimit');
+      const response = await axios.get('https://primelms-server.netlify.app/api/subject/getAllSubjectsNoLimit');
       if (Array.isArray(response.data)) {
         setSubjects(response.data);
         setFilteredSubjects(response.data); // Initially, show all subjects
@@ -43,7 +43,7 @@ const ManageSubject = () => {
   // Fetch all courses
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('https://lmsacademicserver.netlify.app/api/course/getAllCourses');
+      const response = await axios.get('https://primelms-server.netlify.app/api/course/getAllCourses');
       if (Array.isArray(response.data)) {
         setCourses(response.data);
       } else if (response.data?.courses) {
@@ -113,7 +113,7 @@ const ManageSubject = () => {
     const token = localStorage.getItem('token');
     try {
       const response = await axios.put(
-        `https://lmsacademicserver.netlify.app/api/subject/updateSubject/${editingSubjectId}`,
+        `https://primelms-server.netlify.app/api/subject/updateSubject/${editingSubjectId}`,
         editedSubject,
         {
           headers: {

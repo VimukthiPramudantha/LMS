@@ -69,7 +69,7 @@ const PaymentDetailCard = () => {
         }
 
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         );
         const studentData = response.data.find(
           (student) => student.studentID === decodeURIComponent(storedStudentId)
@@ -90,7 +90,7 @@ const PaymentDetailCard = () => {
     const fetchInstallments = async (studentId, createdAt) => {
       try {
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudent/${studentId}`
+          `https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudent/${studentId}`
         );
         if (response.data.Installments) {
           const formattedInstallments = calculateDueDates(

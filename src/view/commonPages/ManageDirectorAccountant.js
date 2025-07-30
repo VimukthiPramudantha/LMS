@@ -15,11 +15,11 @@ const ManageDirectorAccountant = () => {
         const fetchData = async () => {
             try {
                 // Fetch accountants
-                const accountantsResponse = await axios.get('https://lmsacademicserver.netlify.app/api/accountant/');
+                const accountantsResponse = await axios.get('https://primelms-server.netlify.app/api/accountant/');
                 setAccountants(accountantsResponse.data);
                 
                 // Fetch campuses
-                const campusesResponse = await axios.get('https://lmsacademicserver.netlify.app/api/campus/getAllCampuses');
+                const campusesResponse = await axios.get('https://primelms-server.netlify.app/api/campus/getAllCampuses');
                 setCampuses(campusesResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -57,13 +57,13 @@ const ManageDirectorAccountant = () => {
     const handleSaveClick = async () => {
         try {
             await axios.put(
-                `https://lmsacademicserver.netlify.app/api/accountant/${editId}`,
+                `https://primelms-server.netlify.app/api/accountant/${editId}`,
                 editedAccountant
             );
             setEditId(null);
             
             // Refresh data
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/accountant/');
+            const response = await axios.get('https://primelms-server.netlify.app/api/accountant/');
             setAccountants(response.data);
         } catch (error) {
             console.error("Error updating accountant:", error);

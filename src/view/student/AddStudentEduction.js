@@ -52,7 +52,7 @@ const AddStudentEduction = () => {
     } else {
       axios
         .get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         )
         .then((response) => {
           const loginStudent = response.data[0];
@@ -159,7 +159,7 @@ const handleCurrentlyStudyingSchoolChange = (e) => {
 
     try {
         const response = await axios.put(
-            "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updateStudentDetails/" + studentObjectId,
+            "https://primelms-server.netlify.app/api/coordinatorAddStudent/updateStudentDetails/" + studentObjectId,
             formattedData,
             {
                 headers: {

@@ -23,7 +23,7 @@ const AddWorksSpace = () => {
 
         try {
             const response = await fetch(
-                "https://lmsacademicserver.netlify.app/api/studentWork/create",
+                "https://primelms-server.netlify.app/api/studentWork/create",
                 {
                     method: "POST",
                     headers: {

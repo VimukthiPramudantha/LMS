@@ -43,7 +43,7 @@ const StudentJoinMeeting = () => {
   
     //   // Make a POST request to your backend API
     //   const response = await axios.post(
-    //     "https://lmsacademicserver.netlify.app/api/studentDetails/addStudentJoinclass", // Replace with your backend endpoint
+    //     "https://primelms-server.netlify.app/api/studentDetails/addStudentJoinclass", // Replace with your backend endpoint
     //     meetingData,
     //     {
     //       headers: {
@@ -79,7 +79,7 @@ const StudentJoinMeeting = () => {
         // console.log("Student ID retrieved from localStorage:", storedStudentId);
 
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         );
         // console.log("All Students Response:", response.data);
 
@@ -98,7 +98,7 @@ const StudentJoinMeeting = () => {
 
           if (subjectIds.length > 0) {
             const subjectResponse = await axios.get(
-              `https://lmsacademicserver.netlify.app/api/subject/getAllSubjects?ids=${subjectIds.join(
+              `https://primelms-server.netlify.app/api/subject/getAllSubjects?ids=${subjectIds.join(
                 ","
               )}`
             );

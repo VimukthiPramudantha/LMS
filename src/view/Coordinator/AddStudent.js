@@ -96,7 +96,7 @@ const AddStudent = () => {
       try {
         // Fetch payment plans for the specific campus
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/payment/getPaymentPlansByCampus/${userCampusId}`
+          `https://primelms-server.netlify.app/api/payment/getPaymentPlansByCampus/${userCampusId}`
         );
 
         if (response.data) {
@@ -145,7 +145,7 @@ const AddStudent = () => {
         const initialStudentNumber = selectedCourse.initialStudentNumber || 0;
 
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents?courseTitle=${selectedCourse._id}`
+          `https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents?courseTitle=${selectedCourse._id}`
         );
 
         const existingStudentIDs = response.data.map(
@@ -181,7 +181,7 @@ const AddStudent = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/course/getAllCourses"
+          "https://primelms-server.netlify.app/api/course/getAllCourses"
         );
         if (Array.isArray(response.data.courses)) {
           const campusData = localStorage.getItem("assignCampus");
@@ -284,7 +284,7 @@ const AddStudent = () => {
 
       // API call
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/addStudent",
+        "https://primelms-server.netlify.app/api/coordinatorAddStudent/addStudent",
         {
           campusName: campusName,
           courseTitle: formData.courseTitle,
@@ -361,7 +361,7 @@ const AddStudent = () => {
     formData.append("paymentSlip", file);
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/uploadPaymentSlip",
+        "https://primelms-server.netlify.app/api/coordinatorAddStudent/uploadPaymentSlip",
         formData,
         {
           headers: {

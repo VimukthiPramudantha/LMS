@@ -26,7 +26,7 @@ const ManageStudent = () => {
     const fetchCampusDetails = async (campusId) => {
       try {
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/campus/getCampusById/${campusId}`
+          `https://primelms-server.netlify.app/api/campus/getCampusById/${campusId}`
         );
         setUserCampus(response.data);
       } catch (error) {
@@ -56,7 +56,7 @@ const ManageStudent = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         );
         setStudents(response.data);
         setFilteredStudents(response.data);
@@ -71,7 +71,7 @@ const ManageStudent = () => {
     const fetchCampuses = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/campus/getAllCampuses"
+          "https://primelms-server.netlify.app/api/campus/getAllCampuses"
         );
         setCampuses(response.data.campus || response.data);
       } catch (error) {
@@ -123,7 +123,7 @@ const ManageStudent = () => {
 
     try {
       const response = await axios.get(
-        `https://lmsacademicserver.netlify.app/api/course/getCoursesByCampus/${userCampus._id}`
+        `https://primelms-server.netlify.app/api/course/getCoursesByCampus/${userCampus._id}`
       );
       setCourses(response.data.courses || response.data);
       console.log("Courses for campus:", response.data);
@@ -154,7 +154,7 @@ const ManageStudent = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudentbycourse/${selectedCourse._id}`
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudentbycourse/${selectedCourse._id}`
       );
       setFilteredStudents(response.data); // Update filteredStudents with API response
       setShowManageStudentsModal(true);

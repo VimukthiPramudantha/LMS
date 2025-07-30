@@ -58,13 +58,13 @@ function Login() {
     let endpoint;
     switch (selectedRole) {
       case "2": // Academic Manager
-        endpoint = "https://lmsacademicserver.netlify.app/api/academicManager/signIn";
+        endpoint = "https://primelms-server.netlify.app/api/academicManager/signIn";
         break;
       case "4": // Super Admin
-        endpoint = "https://lmsacademicserver.netlify.app/api/superAdmin/signInAdmin";
+        endpoint = "https://primelms-server.netlify.app/api/superAdmin/signInAdmin";
         break;
       case "5": // Coordinator
-        endpoint = "https://lmsacademicserver.netlify.app/api/coordinator/login";
+        endpoint = "https://primelms-server.netlify.app/api/coordinator/login";
         break;
       case "6": // IT Executive
         endpoint = "https://lmsacademicservervb.netlify.app/api/itExicutive/login";
@@ -73,10 +73,10 @@ function Login() {
         endpoint = "https://lmsacademicservervb.netlify.app/api/teacher/login";
         break;
       case "8": // Accountant
-        endpoint = "https://lmsacademicserver.netlify.app/api/accountant/login";
+        endpoint = "https://primelms-server.netlify.app/api/accountant/login";
         break;
       case "9": // Accountant head
-        endpoint = "https://lmsacademicserver.netlify.app/api/accountanthead/login";
+        endpoint = "https://primelms-server.netlify.app/api/accountanthead/login";
         break;
       default: // Academic Director and others
         endpoint = "https://lmsacademicservervb.netlify.app/api/academicDirector/signIn";

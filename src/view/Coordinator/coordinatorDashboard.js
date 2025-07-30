@@ -30,7 +30,7 @@ const AcademicManagerDashboard = () => {
     const fetchCampusDetails = async (campusId) => {
       try {
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/campus/getCampusById/${campusId}`
+          `https://primelms-server.netlify.app/api/campus/getCampusById/${campusId}`
         );
         setUserCampus(response.data);
       } catch (error) {
@@ -60,7 +60,7 @@ const AcademicManagerDashboard = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         );
         setStudents(response.data);
         setFilteredStudents(response.data);
@@ -75,7 +75,7 @@ const AcademicManagerDashboard = () => {
     const fetchCampuses = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/campus/getAllCampuses"
+          "https://primelms-server.netlify.app/api/campus/getAllCampuses"
         );
         setCampuses(response.data.campus || response.data);
       } catch (error) {

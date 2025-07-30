@@ -19,7 +19,7 @@ const AddITExecutiveLogin = () => {
 
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/itExicutive/signIn",
+        "https://primelms-server.netlify.app/api/itExicutive/signIn",
         {
           name,
           ITExecutiveID,

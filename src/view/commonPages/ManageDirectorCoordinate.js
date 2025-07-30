@@ -13,11 +13,11 @@ const ManageDirectorCoordinate = () => {
         const fetchData = async () => {
             try {
                 // Fetch coordinators
-                const coordinatorsResponse = await axios.get('https://lmsacademicserver.netlify.app/api/coordinator/getAllCoordinators');
+                const coordinatorsResponse = await axios.get('https://primelms-server.netlify.app/api/coordinator/getAllCoordinators');
                 setCoordinators(coordinatorsResponse.data);
                 
                 // Fetch campuses
-                const campusesResponse = await axios.get('https://lmsacademicserver.netlify.app/api/campus/getAllCampuses');
+                const campusesResponse = await axios.get('https://primelms-server.netlify.app/api/campus/getAllCampuses');
                 setCampuses(campusesResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -55,13 +55,13 @@ const ManageDirectorCoordinate = () => {
     const handleSaveClick = async () => {
         try {
             await axios.put(
-                `https://lmsacademicserver.netlify.app/api/coordinator/updateCoordinator/${editId}`,
+                `https://primelms-server.netlify.app/api/coordinator/updateCoordinator/${editId}`,
                 editedCoordinator
             );
             setEditId(null);
             
             // Refresh data
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/coordinator/getAllCoordinators');
+            const response = await axios.get('https://primelms-server.netlify.app/api/coordinator/getAllCoordinators');
             setCoordinators(response.data);
         } catch (error) {
             console.error("Error updating coordinator:", error);

@@ -10,7 +10,7 @@ const ManageDirectorITExecutive = () => {
     const fetchITExecutives = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/itExicutive/getall"
+          "https://primelms-server.netlify.app/api/itExicutive/getall"
         );
         setITExecutives(response.data);
       } catch (error) {
@@ -34,15 +34,15 @@ const ManageDirectorITExecutive = () => {
   const handleSaveClick = async () => {
     try {
       await axios.put(
-        `https://lmsacademicserver.netlify.app/api/itExicutive/updateITExecutive/${editId}`,
+        `https://primelms-server.netlify.app/api/itExicutive/updateITExecutive/${editId}`,
         editedITExecutive
       );
       setEditId(null);
 
       // Refetch the updated IT Executives
       const response = await axios.get(
-        // "https://lmsacademicserver.netlify.app/api/itexecutive/getAllITExecutives"
-         "https://lmsacademicserver.netlify.app/api/itExicutive/getall"
+        // "https://primelms-server.netlify.app/api/itexecutive/getAllITExecutives"
+         "https://primelms-server.netlify.app/api/itExicutive/getall"
       );
       setITExecutives(response.data);
     } catch (error) {

@@ -84,7 +84,7 @@ const AddStudentEducation2 = () => {
 
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/StudentEducationDetailRoute/addEducationDetails",
+        "https://primelms-server.netlify.app/api/StudentEducationDetailRoute/addEducationDetails",
         payload,
         {
           headers: {

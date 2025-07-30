@@ -16,7 +16,7 @@ const ManageCampus = () => {
   const fetchCampuses = async () => {
     try {
       const response = await axios.get(
-        "https://lmsacademicserver.netlify.app/api/campus/getAllCampuses"
+        "https://primelms-server.netlify.app/api/campus/getAllCampuses"
       );
       setCampuses(response.data);
       console.log(response.data);
@@ -43,7 +43,7 @@ const ManageCampus = () => {
   const handleSaveClick = async () => {
     try {
       await axios.put(
-        `https://lmsacademicserver.netlify.app/api/campus/updateCampus/${editingCampusId}`,
+        `https://primelms-server.netlify.app/api/campus/updateCampus/${editingCampusId}`,
         editedCampus
       );
       setCampuses(

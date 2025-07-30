@@ -34,7 +34,7 @@ const AddSCampus = () => {
 
         try {
             const response = await axios.post(
-                "https://lmsacademicserver.netlify.app/api/campus/create",
+                "https://primelms-server.netlify.app/api/campus/create",
                 newCampus,
                 {
                     headers: {

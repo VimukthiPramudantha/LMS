@@ -18,7 +18,7 @@ function StudentLogin() {
     
         try {
             const response = await axios.post(
-                'https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/LoginStudent',
+                'https://primelms-server.netlify.app/api/coordinatorAddStudent/LoginStudent',
 
                 
                 { studentID,whatsAppMobileNo1 }

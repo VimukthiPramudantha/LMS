@@ -10,7 +10,7 @@ const ManageTeacher = () => {
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        const response = await axios.get('https://lmsacademicserver.netlify.app/api/teacher/getAllTeachers');
+        const response = await axios.get('https://primelms-server.netlify.app/api/teacher/getAllTeachers');
         setTeachers(response.data);
       } catch (error) {
         console.error("Error fetching teachers:", error);
@@ -33,13 +33,13 @@ const ManageTeacher = () => {
   const handleSaveClick = async () => {
     try {
       await axios.put(
-        `https://lmsacademicserver.netlify.app/api/teacher/updateTeacher/${editId}`,
+        `https://primelms-server.netlify.app/api/teacher/updateTeacher/${editId}`,
         editedTeacher
       );
       setEditId(null);
 
       // Refetch the updated teachers
-      const response = await axios.get('https://lmsacademicserver.netlify.app/api/teacher/getAllTeachers');
+      const response = await axios.get('https://primelms-server.netlify.app/api/teacher/getAllTeachers');
       setTeachers(response.data);
     } catch (error) {
       console.error("Error updating teacher:", error);

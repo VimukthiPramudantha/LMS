@@ -12,7 +12,7 @@ const ManageCourse = () => {
     // Fetch all courses
     const fetchCourses = async () => {
         try {
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/course/getAllCourses');
+            const response = await axios.get('https://primelms-server.netlify.app/api/course/getAllCourses');
             const coursesData = response.data.courses || [];
             setCourses(coursesData);
         } catch (error) {
@@ -24,7 +24,7 @@ const ManageCourse = () => {
     // Fetch all subjects
     const fetchSubjects = async () => {
         try {
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/subject/getAllSubjects');
+            const response = await axios.get('https://primelms-server.netlify.app/api/subject/getAllSubjects');
             setSubjects(response.data.subjects || []);
         } catch (error) {
             console.error('Error fetching subjects:', error);
@@ -35,7 +35,7 @@ const ManageCourse = () => {
     // Fetch all campuses
     const fetchCampuses = async () => {
         try {
-            const response = await axios.get("https://lmsacademicserver.netlify.app/api/campus/getAllCampuses");
+            const response = await axios.get("https://primelms-server.netlify.app/api/campus/getAllCampuses");
             if (Array.isArray(response.data)) {
                 setCampuses(response.data);
             } else if (response.data && Array.isArray(response.data.campus)) {

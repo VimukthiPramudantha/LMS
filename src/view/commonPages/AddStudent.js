@@ -53,7 +53,7 @@ const AddStudent = () => {
   
         // Fetch all students for the selected course
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents?courseTitle=${formData.courseTitle}`
+          `https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents?courseTitle=${formData.courseTitle}`
         );
         const students = response.data;
   
@@ -101,7 +101,7 @@ const AddStudent = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/course/getAllCourses"
+          "https://primelms-server.netlify.app/api/course/getAllCourses"
         );
         if (Array.isArray(response.data.courses)) {
           const campusData = localStorage.getItem("assignCampus");
@@ -130,7 +130,7 @@ const AddStudent = () => {
     const fetchPaymentPlans = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/payment/getAllPaymentPlans"
+          "https://primelms-server.netlify.app/api/payment/getAllPaymentPlans"
         );
         if (Array.isArray(response.data)) {
           setPaymentPlans(response.data);
@@ -198,7 +198,7 @@ const AddStudent = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/addStudent",
+        "https://primelms-server.netlify.app/api/coordinatorAddStudent/addStudent",
         {
           campusName: campusName,
           courseTitle: formData.courseTitle,
@@ -264,7 +264,7 @@ const AddStudent = () => {
     formData.append("paymentSlip", file);
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/uploadPaymentSlip",
+        "https://primelms-server.netlify.app/api/uploadPaymentSlip",
         formData,
         {
           headers: {

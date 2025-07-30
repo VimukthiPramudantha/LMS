@@ -36,7 +36,7 @@ const AddCourse = () => {
     const fetchSubjects = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/subject/getAllSubjectsNoLimit"
+          "https://primelms-server.netlify.app/api/subject/getAllSubjectsNoLimit"
         );
         console.log("Fetched subjects:", response.data);
 
@@ -65,7 +65,7 @@ const AddCourse = () => {
     const fetchCampus = async () => {
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/campus/getAllCampuses"
+          "https://primelms-server.netlify.app/api/campus/getAllCampuses"
         );
         console.log("Fetched campus:", response.data);
 
@@ -124,7 +124,7 @@ const AddCourse = () => {
 
     try {
       const response = await axios.post(
-        "https://lmsacademicserver.netlify.app/api/course/create",
+        "https://primelms-server.netlify.app/api/course/create",
         newCourse,
         {
           headers: {

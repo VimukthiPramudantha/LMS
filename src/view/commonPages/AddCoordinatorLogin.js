@@ -14,7 +14,7 @@ function AddCoordinatorLogin() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://lmsacademicserver.netlify.app/api/coordinator/create', {
+            const response = await axios.post('https://primelms-server.netlify.app/api/coordinator/create', {
                 name,
                 coordID,
                 password,

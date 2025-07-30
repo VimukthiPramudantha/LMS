@@ -28,7 +28,7 @@ const ManageCampus = () => {
       setLoading(true); // Set loading state
       try {
         const response = await axios.get(
-          "https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getAllStudents"
+          "https://primelms-server.netlify.app/api/coordinatorAddStudent/getAllStudents"
         );
         setStudents(response.data);
       } catch (error) {
@@ -56,7 +56,7 @@ const ManageCampus = () => {
 
       // Make a PUT request to update the student data
       const response = await axios.put(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updateStudent/${editStudentId}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updateStudent/${editStudentId}`,
         editStudentData
       );
 

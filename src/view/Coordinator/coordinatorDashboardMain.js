@@ -48,7 +48,7 @@ const ITExicutiveDashboardMain = () => {
 
           // Fetch campus details
           const response = await axios.get(
-            `https://lmsacademicserver.netlify.app/api/campus/getCampusById/${campusId}`
+            `https://primelms-server.netlify.app/api/campus/getCampusById/${campusId}`
           );
 
           // Update the campus name in state

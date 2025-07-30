@@ -18,7 +18,7 @@ const ImageDropzone = ({ onUploadComplete,studentIde }) => {
     const fetchProfileImage = async () => {
       try {
         const response = await axios.get(
-          `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudent/${studentIde}`
+          `https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudent/${studentIde}`
         );
         if (response.data.profileImage) {
           setCurrentProfileImage(response.data.profileImage);
@@ -73,7 +73,7 @@ const ImageDropzone = ({ onUploadComplete,studentIde }) => {
     setIsUploading(true);
     try {
       const response = await axios.put(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/${studentIde}/image`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/${studentIde}/image`,
         { imageBase64: preview },
         {
           headers: {

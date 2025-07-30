@@ -80,7 +80,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/getStudent/${student._id}`
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/getStudent/${student._id}`
       );
 
       if (response.data) {
@@ -250,7 +250,7 @@ useEffect(() => {
   
       // 3. Send updates to the server
       const response = await axios.patch(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updateInstallments/${student._id}`,
         {
           Installments: updatedInstallments,
           PaymentHistory: [newPaymentRecord] // Send only the new record
@@ -283,7 +283,7 @@ useEffect(() => {
       
       // Optional: Save immediately to backend
       await axios.put(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updatePaymentHis/${student._id}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updatePaymentHis/${student._id}`,
         { paymentId, payHisSlipRefCheck: checkRef }
       );
     } catch (error) {
@@ -338,7 +338,7 @@ useEffect(() => {
   
       // Send to backend
       await axios.put(
-        `https://lmsacademicserver.netlify.app/api/coordinatorAddStudent/updatePaymentHis/${student._id}`,
+        `https://primelms-server.netlify.app/api/coordinatorAddStudent/updatePaymentHis/${student._id}`,
         {
           paymentId,
           PayHisPaymentStatus: newStatus,

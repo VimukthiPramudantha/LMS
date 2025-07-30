@@ -12,7 +12,7 @@ const ManagePayment = () => {
 
     const fetchPayments = async () => {
         try {
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/payment/getAllPaymentPlans');
+            const response = await axios.get('https://primelms-server.netlify.app/api/payment/getAllPaymentPlans');
             const data = Array.isArray(response.data) ? response.data : [];
             setPayments(data);
             setFilteredPayments(data);
@@ -26,7 +26,7 @@ const ManagePayment = () => {
     const fetchCourses = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get("https://lmsacademicserver.netlify.app/api/course/getAllCourses", {
+            const response = await axios.get("https://primelms-server.netlify.app/api/course/getAllCourses", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const fetchedCourses = response.data.courses;
@@ -45,7 +45,7 @@ const ManagePayment = () => {
     const fetchCampuses = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get("https://lmsacademicserver.netlify.app/api/campus/getAllCampuses", {
+            const response = await axios.get("https://primelms-server.netlify.app/api/campus/getAllCampuses", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const fetchedCampuses = response.data.campus || response.data;

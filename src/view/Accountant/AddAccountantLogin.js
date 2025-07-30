@@ -17,7 +17,7 @@ function AddAccountantLogin() {
         e.preventDefault();
         try {
             setIsSubmitting(true);
-            const response = await axios.post('https://lmsacademicserver.netlify.app/api/accountant', {
+            const response = await axios.post('https://primelms-server.netlify.app/api/accountant', {
                 name,
                 AccountID,
                 password
