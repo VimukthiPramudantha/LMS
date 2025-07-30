@@ -23,7 +23,15 @@ const ManageCourse = () => {
     // Fetch all courses
     const fetchCourses = async () => {
         try {
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/course/getAllCourses');
+            const token = localStorage.getItem('token') || ''; // Retrieve token
+            const response = await axios.get(
+                `${import.meta.env.VITE_API_BASE_URL}/api/course/getAllCourses`,
+                {
+                    headers: {
+                        'x-auth-token': token,
+                    },
+                }
+            );
             const coursesData = response.data.courses || [];
             setCourses(coursesData);
         } catch (error) {
@@ -35,7 +43,15 @@ const ManageCourse = () => {
     // Fetch all subjects
     const fetchSubjects = async () => {
         try {
-            const response = await axios.get('https://lmsacademicserver.netlify.app/api/subject/getAllSubjects');
+            const token = localStorage.getItem('token') || ''; // Retrieve token
+            const response = await axios.get(
+                `${import.meta.env.VITE_API_BASE_URL}/api/subject/getAllSubjects`,
+                {
+                    headers: {
+                        'x-auth-token': token,
+                    },
+                }
+            );
             setSubjects(response.data.subjects || []);
         } catch (error) {
             console.error('Error fetching subjects:', error);
@@ -46,7 +62,15 @@ const ManageCourse = () => {
     // Fetch all campuses
     const fetchCampuses = async () => {
         try {
-            const response = await axios.get("https://lmsacademicserver.netlify.app/api/campus/getAllCampuses");
+            const token = localStorage.getItem('token') || ''; // Retrieve token
+            const response = await axios.get(
+                `${import.meta.env.VITE_API_BASE_URL}/api/campus/getAllCampuses`,
+                {
+                    headers: {
+                        'x-auth-token': token,
+                    },
+                }
+            );
             if (Array.isArray(response.data)) {
                 setCampuses(response.data);
             } else if (response.data && Array.isArray(response.data.campus)) {
@@ -56,8 +80,8 @@ const ManageCourse = () => {
                 setCampuses([]);
             }
         } catch (err) {
-            console.error("Error fetching campus:", err);
-            setError("Failed to load campus.");
+            console.error('Error fetching campus:', err);
+            setError('Failed to load campus.');
             setCampuses([]);
         }
     };
@@ -79,9 +103,9 @@ const ManageCourse = () => {
     };
 
     // Filter courses based on search term and selected campus ID
-    const filteredCourses = courses.filter(course => {
+    const filteredCourses = courses.filter((course) => {
         const matchesSearchTerm = course.courseTitle.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesSelectedCampus = selectedCampusId ? course.campus.some(camp => camp._id === selectedCampusId) : true;
+        const matchesSelectedCampus = selectedCampusId ? course.campus.some((camp) => camp._id === selectedCampusId) : true;
         return matchesSearchTerm && matchesSelectedCampus;
     });
 
@@ -101,14 +125,17 @@ const ManageCourse = () => {
 
     // Save changes to the course
     const handleSaveClick = async () => {
-        const token = localStorage.getItem('token');
-
+        const token = localStorage.getItem('token') || ''; // Retrieve token
         try {
-            await axios.put(`https://lmsacademicserver.netlify.app/api/course/updateCourse/${editingCourseId}`, editedCourse, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
+            await axios.put(
+                `${import.meta.env.VITE_API_BASE_URL}/api/course/updateCourse/${editingCourseId}`,
+                editedCourse,
+                {
+                    headers: {
+                        'x-auth-token': token, // Updated header to match previous project
+                    },
+                }
+            );
 
             setEditingCourseId(null);
             setEditedCourse({
@@ -161,11 +188,7 @@ const ManageCourse = () => {
                 </div>
 
                 <div className="col-12 col-md-6 col-lg-4 mb-3">
-                    <select
-                        className="form-select"
-                        value={selectedCampusId}
-                        onChange={handleCampusSelect}
-                    >
+                    <select className="form-select" value={selectedCampusId} onChange={handleCampusSelect}>
                         <option value="">All Campuses</option>
                         {campuses.map((campus) => (
                             <option key={campus._id} value={campus._id}>
@@ -206,7 +229,8 @@ const ManageCourse = () => {
                                     </h5>
 
                                     <p className="card-text text-center">
-                                        <strong>Level:</strong> {editingCourseId === course._id ? (
+                                        <strong>Level:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <input
                                                 type="text"
                                                 className="form-control mb-2"
@@ -221,7 +245,8 @@ const ManageCourse = () => {
                                     </p>
 
                                     <p className="card-text text-center">
-                                        <strong>Duration:</strong> {editingCourseId === course._id ? (
+                                        <strong>Duration:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <input
                                                 type="text"
                                                 className="form-control mb-2"
@@ -236,7 +261,8 @@ const ManageCourse = () => {
                                     </p>
 
                                     <p className="card-text text-center">
-                                        <strong>Subject:</strong> {editingCourseId === course._id ? (
+                                        <strong>Subject:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <select
                                                 className="form-select mb-2"
                                                 value={editedCourse.subject}
@@ -252,12 +278,13 @@ const ManageCourse = () => {
                                                 ))}
                                             </select>
                                         ) : (
-                                            course.subject.map(sub => sub.subjectName).join(', ')
+                                            course.subject.map((sub) => sub.subjectName).join(', ')
                                         )}
                                     </p>
 
                                     <p className="card-text text-center">
-                                        <strong>Campus:</strong> {editingCourseId === course._id ? (
+                                        <strong>Campus:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <select
                                                 className="form-select mb-2"
                                                 value={editedCourse.campus}
@@ -273,12 +300,13 @@ const ManageCourse = () => {
                                                 ))}
                                             </select>
                                         ) : (
-                                            course.campus.map(camp => camp.campusName).join(', ')
+                                            course.campus.map((camp) => camp.campusName).join(', ')
                                         )}
                                     </p>
 
                                     <p className="card-text text-center">
-                                        <strong>Fee:</strong> {editingCourseId === course._id ? (
+                                        <strong>Fee:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <input
                                                 type="text"
                                                 className="form-control mb-2"
@@ -293,7 +321,8 @@ const ManageCourse = () => {
                                     </p>
 
                                     <p className="card-text text-center">
-                                        <strong>Language:</strong> {editingCourseId === course._id ? (
+                                        <strong>Language:</strong>{' '}
+                                        {editingCourseId === course._id ? (
                                             <input
                                                 type="text"
                                                 className="form-control mb-2"
